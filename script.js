@@ -1,3 +1,13 @@
+//localStorage.clear();
+
+/*
+function mostrarResultado(texto){
+    document.getElementById("resultado").innerHTML = texto;
+}
+
+mostrarResultado("Texto a mostrar");
+*/
+
 // OBJETO LIBRO
 function Libro(titulo, autor, isbn, anio) {
     this.titulo = titulo;

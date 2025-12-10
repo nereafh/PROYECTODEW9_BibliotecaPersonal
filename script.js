@@ -1,6 +1,4 @@
-// ===============================================================
 // OBJETO LIBRO
-// ===============================================================
 function Libro(titulo, autor, isbn, anio) {
     this.titulo = titulo;
     this.autor = autor;
@@ -29,9 +27,7 @@ window.addEventListener("load", function() {
     }
 });
 
-// ===============================================================
 // VALIDACIÓN DE CAMPOS
-// ===============================================================
 function validarCampo(input, errorElemento, patron, mensaje) {
     if(patron.test(input.value.trim())) {
         input.classList.add("correcto");
@@ -46,9 +42,7 @@ function validarCampo(input, errorElemento, patron, mensaje) {
     }
 }
 
-// ===============================================================
 // EVENTOS DE VALIDACIÓN EN TIEMPO REAL
-// ===============================================================
 document.querySelector("#titulo").addEventListener("keyup", function() {
     validarCampo(this, document.querySelector("#errorTitulo"), regex.titulo, "Título inválido");
 });
@@ -62,9 +56,7 @@ document.querySelector("#anio").addEventListener("keyup", function() {
     validarCampo(this, document.querySelector("#errorAnio"), regex.anio, "Año inválido");
 });
 
-// ===============================================================
 // AÑADIR LIBRO
-// ===============================================================
 document.querySelector("#formLibro").addEventListener("submit", function(e){
     e.preventDefault();
 
@@ -96,9 +88,7 @@ document.querySelector("#formLibro").addEventListener("submit", function(e){
     mostrarLibros(libros);
 });
 
-// ===============================================================
 // MOSTRAR LIBROS EN PANTALLA
-// ===============================================================
 function mostrarLibros(lista) {
     const contenedor = document.querySelector("#listaLibros");
     contenedor.innerHTML = "";
@@ -133,11 +123,11 @@ function mostrarLibros(lista) {
         btnEliminar.className = "btn btn-danger btn-leido ms-2";
 
         btnEliminar.addEventListener("click", function() {
-            if(confirm("¿Quieres eliminar el libro '" + libro.titulo + "'?")) {
+            //if(confirm("¿Quieres eliminar el libro '" + libro.titulo + "'?")) {
                 libros.splice(index,1);
                 localStorage.setItem("libros", JSON.stringify(libros));
                 mostrarLibros(lista);
-            }
+           // }
         });
 
         card.appendChild(btnLeido);
@@ -148,9 +138,7 @@ function mostrarLibros(lista) {
     });
 }
 
-// ===============================================================
 // BUSCADOR DE LIBROS
-// ===============================================================
 document.querySelector("#buscar").addEventListener("keyup", function(){
     const texto = this.value.toLowerCase();
     const filtrados = libros.filter(libro => 
